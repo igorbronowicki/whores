@@ -1,6 +1,7 @@
 var ejs = require('ejs');
 var db = require('./db');
 var express = require('express');
+var _ = require('underscore');
 ejs.open = '[%';
 ejs.close = '%]';
 var app = express();
@@ -26,9 +27,18 @@ app.get('/whores', function(req, res) {
 app.get('/whores/:id', function(req, res) {
     var id = req.params.id;
     var whore = db.getWhoreById(id);
+    var count = db.getAllWhores().length-1;
+    var random = _.random(count);
+    var related_whores = [];
+    related_whores.push(db.getWhoreById(_.random(0, count)));
+    related_whores.push(db.getWhoreById(_.random(0, count)));
+    related_whores.push(db.getWhoreById(_.random(0, count)));
+    
+ console.log(db.getWhoreById(_.random(0, count)));
     if (!whore) res.redirect('/whores');
-    res.render('whore', {
-        whore: whore
+    res.render('whore.html', {
+        "whore": whore,
+        "related_whores": related_whores
     });
 });
 app.get('*', function(req, res){

@@ -22,6 +22,28 @@
     <p>номер телефон: [%= whore.phone %]</p> 
     <p>выезд : [%= whore.can_come %]</p> 
     <p>цена : [%= whore.price %]</p> 
-    <p>о себе : [%= whore.teaser %]</p> 
+    <p>о себе : [%= whore.teaser %]</p>
+
+    <hr />
+    <h3>Подруги</h3>
+
+    <ul>
+        [% for(var i=0; i<related_whores.length; i++) {%]
+        <li>
+            <a href="/whores/[%= related_whores[i].id %]" title="[%= related_whores[i].name %]">[%= related_whores[i].name %]</a>
+        </li>
+        [% } %]
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
