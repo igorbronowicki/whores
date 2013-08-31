@@ -20,10 +20,35 @@
         <p>размер груди : [%= whore.boobs %]</p>
         <p>вес : [%= whore.weight %] кг</p>
         <p>рост : [%= whore.height %] см</p>
-        <p>[%= whore.skils %]</p>
+        <p>классический секс : [% if (whore.skils.base_classic) { %]
+                        да 
+                    [% } else { %]
+                        нет
+                    [% } %]
+        </p>
+        <p>анал : [% if (whore.skils.base_anal) { %]
+                        да 
+                    [% } else { %]
+                        нет
+                    [% } %]
+        </p>
+        <p>без призерватива : [% if (whore.skils.extra_without_condom) { %]
+                        да 
+                    [% } else { %]
+                        нет
+                    [% } %]
+        </p>
+        <p>глубокий минет : [% if (whore.skils.extra_deep_throat) { %]
+                        да 
+                    [% } else { %]
+                        нет
+                    [% } %]
+        </p>
         <p>номер телефон: [%= whore.phone %]</p>
         <p>выезд : [%= whore.can_come %]</p>
-        <p>цена : [%= whore.price %]</p>
+        <p>цена за час : [%= whore.price.hour %]</p>
+        <p>цена за два часа : [%= whore.price.two_hours %]</p>
+        <p>цена за ночь : [%= whore.price.night %]</p>
         <p>о себе : [%= whore.teaser %]</p>
     </article>
 
