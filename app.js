@@ -1,17 +1,15 @@
 var ejs = require('ejs');
+var db = require('./db');
+var express = require('express');
 ejs.open = '[%';
 ejs.close = '%]';
-var express = require('express');
 var app = express();
-
-var db = require('./db');
 
 // app configuration
 app.engine('html', require('ejs').__express);
 app.set('views', __dirname + '/templates');
 app.set('view engine', 'html');
 app.use('/static', express.static(__dirname + '/public'));
-
 
 // Routes
 app.get('/', function(req, res) {
@@ -27,9 +25,14 @@ app.get('/whores', function(req, res) {
 });
 app.get('/whores/:id', function(req, res) {
     var id = req.params.id;
+    var whore = db.getWhoreById(id);
+    if (!whore) res.redirect('/whores');
     res.render('whore', {
-        whore: db.getWhoreById(id)
+        whore: whore
     });
+});
+app.get('*', function(req, res){
+    res.redirect('/whores');
 });
 
 // Config server port
