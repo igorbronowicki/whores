@@ -13,12 +13,14 @@
     <![endif]-->
 </head>
 <body>
-    <ul>
+    <section id="whores">
         [% for(var i=0; i<whores.length; i++) {%]
-        <li>
-            <a href="/whores/[%= whores[i].id %]" title="[%= whores[i].name %]">[%= whores[i].name %]</a>
-        </li>
+        <articles>
+            <img src="http://placehold.it/350x150" alt="[%= whores[i].name %]" />
+            <h2>[%= whores[i].name %]</h2>
+            <a href="/whores/[%= whores[i].id %]" title="[%= whores[i].name %]">Анкета</a>
+        </articles>
         [% } %]
-    </ul>
+    </section>
 </body>
 </html>

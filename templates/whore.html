@@ -13,37 +13,29 @@
     <![endif]-->
 </head>
 <body>
-    <h1>имя : [%= whore.name %]</h1>
-    <p>возраст : [%= whore.age %]</p> 
-    <p>размер груди : [%= whore.boobs %]</p> 
-    <p>вес : [%= whore.weight %] кг</p> 
-    <p>рост : [%= whore.height %] см</p> 
-    <p>[%= whore.skils %]</p> 
-    <p>номер телефон: [%= whore.phone %]</p> 
-    <p>выезд : [%= whore.can_come %]</p> 
-    <p>цена : [%= whore.price %]</p> 
-    <p>о себе : [%= whore.teaser %]</p>
+    <article id="whore">
+        <img src="http://placehold.it/350x150" alt="[%= whore.name %]" />
+        <h1>[%= whore.name %]</h1>
+        <p>возраст : [%= whore.age %]</p>
+        <p>размер груди : [%= whore.boobs %]</p>
+        <p>вес : [%= whore.weight %] кг</p>
+        <p>рост : [%= whore.height %] см</p>
+        <p>[%= whore.skils %]</p>
+        <p>номер телефон: [%= whore.phone %]</p>
+        <p>выезд : [%= whore.can_come %]</p>
+        <p>цена : [%= whore.price %]</p>
+        <p>о себе : [%= whore.teaser %]</p>
+    </article>
 
-    <hr />
-    <h3>Подруги</h3>
+    <aside id="related">
+        <h2>Подруги</h2>
 
-    <ul>
         [% for(var i=0; i<related_whores.length; i++) {%]
-        <li>
+        <article>
             <a href="/whores/[%= related_whores[i].id %]" title="[%= related_whores[i].name %]">[%= related_whores[i].name %]</a>
-        </li>
+        </article>
         [% } %]
-    </ul>
-
-
-
-
-
-
-
-
-
-
+    </aside>
 
 </body>
 </html>

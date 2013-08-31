@@ -667,5 +667,5 @@ exports.getAllWhores = function() {
 };
 
 exports.getWhoreById = function(id) {
-	return _.findWhere(whores, {id: id});
+	return _.findWhere(whores, {id: ""+id});
 };
