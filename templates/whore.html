@@ -2,15 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>[%= whore.name %]</title>
     <link rel="stylesheet/less" type="text/css" href="/static/style.less" />
     <script type="text/javascript" src="/static/less.js"></script>
     <script type="text/javascript" src="/static/jquery.js"></script>
     <script type="text/javascript" src="/static/underscore.js"></script>
     <script type="text/javascript" src="/static/mustache.js"></script>
-    <!--[if lt IE 9]>
-        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <script type="text/javascript" src="/static/index.js"></script>
 </head>
 <body>
     <article id="whore">
@@ -52,15 +50,14 @@
         <p>о себе : [%= whore.teaser %]</p>
     </article>
 
-    <aside id="related">
-        <h2>Подруги</h2>
+    <aside id="random">
+        <h2>Случайные</h2>
 
-        [% for(var i=0; i<related_whores.length; i++) {%]
+        [% for(var i=0; i<random_whores.length; i++) {%]
         <article>
-            <a href="/whores/[%= related_whores[i].id %]" title="[%= related_whores[i].name %]">[%= related_whores[i].name %]</a>
+            <a href="/whores/[%= random_whores[i].id %]" title="[%= random_whores[i].name %]">[%= random_whores[i].name %]</a>
         </article>
         [% } %]
     </aside>
-
 </body>
 </html>

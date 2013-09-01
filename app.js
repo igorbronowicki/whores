@@ -22,7 +22,7 @@ app.get('/', function(req, res) {
 
 // Страница списка шлюх
 app.get('/whores', function(req, res) {
-    res.render('whores', {
+    res.render('whores.html', {
         title: "All Whores",
         whores: db.getAllWhores()
     });
@@ -30,17 +30,13 @@ app.get('/whores', function(req, res) {
 
 // Страница просмотра выбранной шлюхи
 app.get('/whores/:id', function(req, res) {
-    var id = req.params.id;
+    var id = +req.params.id;
     var whore = db.getWhoreById(id);
-    var count = db.getAllWhores().length-1;
-    var related_whores = [];
-    for(var i=0; i<3; i++) {
-        related_whores.push(db.getWhoreById(_.random(1, count)));
-    }
+    var random_whores = db.getRandomWhores();
     if (!whore) res.redirect('/whores');
     res.render('whore.html', {
         "whore": whore,
-        "related_whores": related_whores
+        "random_whores": random_whores
     });
 });
 

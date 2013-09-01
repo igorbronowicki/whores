@@ -1,1 +1,1 @@
-//client code here
+console.log("Hello Whores!");
